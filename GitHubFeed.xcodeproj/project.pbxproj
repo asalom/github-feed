@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1A8E6C224289740060A1BD /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1A8E6B224289740060A1BD /* Secrets.swift */; };
 		3F42CCFB2240FBC60046EAAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F42CCFA2240FBC60046EAAF /* AppDelegate.swift */; };
 		3F42CCFD2240FBC60046EAAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F42CCFC2240FBC60046EAAF /* ViewController.swift */; };
 		3F42CD002240FBC60046EAAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F42CCFE2240FBC60046EAAF /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F1A8E6B224289740060A1BD /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		3F42CCF72240FBC60046EAAF /* GitHubFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F42CCFA2240FBC60046EAAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F42CCFC2240FBC60046EAAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F1A8E6A224289610060A1BD /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				3F42CD012240FBC80046EAAF /* Assets.xcassets */,
+				3F42CD032240FBC80046EAAF /* LaunchScreen.storyboard */,
+				3F42CD062240FBC80046EAAF /* Info.plist */,
+				3F1A8E6B224289740060A1BD /* Secrets.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		3F42CCEE2240FBC60046EAAF = {
 			isa = PBXGroup;
 			children = (
@@ -89,12 +102,10 @@
 		3F42CCF92240FBC60046EAAF /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				3F1A8E6A224289610060A1BD /* Support */,
 				3F42CCFA2240FBC60046EAAF /* AppDelegate.swift */,
 				3F42CCFC2240FBC60046EAAF /* ViewController.swift */,
 				3F42CCFE2240FBC60046EAAF /* Main.storyboard */,
-				3F42CD012240FBC80046EAAF /* Assets.xcassets */,
-				3F42CD032240FBC80046EAAF /* LaunchScreen.storyboard */,
-				3F42CD062240FBC80046EAAF /* Info.plist */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -136,6 +147,7 @@
 			buildConfigurationList = 3F42CD142240FBC90046EAAF /* Build configuration list for PBXNativeTarget "GitHubFeed" */;
 			buildPhases = (
 				0624824A0A343096D4F00623 /* [CP] Check Pods Manifest.lock */,
+				3F1A8E6D22428CB60060A1BD /* Generate Secrets */,
 				3F42CCF32240FBC60046EAAF /* Sources */,
 				3F42CCF42240FBC60046EAAF /* Frameworks */,
 				3F42CCF52240FBC60046EAAF /* Resources */,
@@ -251,6 +263,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3F1A8E6D22428CB60060A1BD /* Generate Secrets */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Secrets";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f ./.env ]\nthen\nsource ./.env\nelse\necho \"Please create '.env' file containing the secrets\"\nexit 1\nfi\n./tools/generate_secrets.rb\n";
+		};
 		6C26C1C2E61E18FE1C1D41C3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -337,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F42CCFD2240FBC60046EAAF /* ViewController.swift in Sources */,
+				3F1A8E6C224289740060A1BD /* Secrets.swift in Sources */,
 				3F42CCFB2240FBC60046EAAF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,7 +532,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Sources/Info.plist;
+				INFOPLIST_FILE = Sources/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -519,7 +550,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Sources/Info.plist;
+				INFOPLIST_FILE = Sources/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
