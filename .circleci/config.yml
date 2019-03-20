@@ -10,8 +10,6 @@ jobs:
       xcode: "10.1.0"
 
     steps:
-      - run: open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app/
-      
       - checkout
 
       - restore_cache:
