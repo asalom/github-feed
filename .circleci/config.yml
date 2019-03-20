@@ -6,21 +6,24 @@ version: 2
 jobs:
   build:
 
-    # Specify the Xcode version to use
     macos:
       xcode: "10.1.0"
 
     steps:
       - checkout
 
-      - run:
-          name: Install Dependencies
-          command: bundle install
+      - restore_cache:
+        keys: 
+          - gem-cache-v1-{{ checksum "Gemfile.lock" }}
 
-      # Build the app and run tests
-      - run:
-          name: Build and run tests
-          command: bundle exec fastlane master_updated
+      - run: bundle install --path vendor/bundle
+
+      - save_cache:
+        key: gem-cache-v1-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+
+      - run: bundle exec fastlane master_updated
 
       # Collect XML test results data to show in the UI,
       # and save the same XML files under test-results folder
