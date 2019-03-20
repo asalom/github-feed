@@ -13,8 +13,7 @@ jobs:
       - checkout
 
       - restore_cache:
-        keys: 
-          - gem-cache-v1-{{ checksum "Gemfile.lock" }}
+        key: gem-cache-v1-{{ checksum "Gemfile.lock" }}
 
       - run: bundle install --path vendor/bundle
 
