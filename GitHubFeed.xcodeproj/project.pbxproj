@@ -276,10 +276,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(SCROOT)/Sources/Support/Secrets.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -f ./.env ]\nthen\nsource ./.env\nelse\necho \"Please create '.env' file containing the secrets\"\nexit 1\nfi\n./tools/generate_secrets.rb\n";
+			shellScript = "if [ -f ./.env ]\nthen\nsource ./.env\nelse\necho \"Please create '.env' file containing the secrets\"\nfi\n./tools/generate_secrets.rb\n";
 		};
 		6C26C1C2E61E18FE1C1D41C3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
