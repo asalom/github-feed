@@ -276,7 +276,6 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(SCROOT)/Sources/Support/Secrets.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

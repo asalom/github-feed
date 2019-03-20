@@ -13,6 +13,6 @@ struct Secrets {
 }
 EOM
 
-file = File.new("Sources/Support/Secrets.swift", "w")
-file.puts(file_content)
-file.close
+File.open("#{ENV['SRCROOT']}/Sources/Support/Secrets.swift", "w") do |file|
+  file.write(file_content)
+end
