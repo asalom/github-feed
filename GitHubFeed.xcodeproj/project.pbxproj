@@ -12,6 +12,8 @@
 		3F006FD4226F145200AB944B /* RepositoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F006FD3226F145200AB944B /* RepositoriesViewController.xib */; };
 		3F006FD6226F18D200AB944B /* RepositoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F006FD5226F18D200AB944B /* RepositoriesRepository.swift */; };
 		3F006FD8226F36D300AB944B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F006FD7226F36D300AB944B /* Repository.swift */; };
+		3F006FDA226F4C0200AB944B /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F006FD9226F4C0200AB944B /* RepositoryCell.swift */; };
+		3F006FDC226F4C3400AB944B /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F006FDB226F4C3400AB944B /* RepositoryCell.xib */; };
 		3F1A8E6C224289740060A1BD /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1A8E6B224289740060A1BD /* Secrets.swift */; };
 		3F42CCFB2240FBC60046EAAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F42CCFA2240FBC60046EAAF /* AppDelegate.swift */; };
 		3F42CD022240FBC80046EAAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F42CD012240FBC80046EAAF /* Assets.xcassets */; };
@@ -49,6 +51,8 @@
 		3F006FD3226F145200AB944B /* RepositoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoriesViewController.xib; sourceTree = "<group>"; };
 		3F006FD5226F18D200AB944B /* RepositoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesRepository.swift; sourceTree = "<group>"; };
 		3F006FD7226F36D300AB944B /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		3F006FD9226F4C0200AB944B /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		3F006FDB226F4C3400AB944B /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		3F1A8E6B224289740060A1BD /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		3F42CCF72240FBC60046EAAF /* GitHubFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F42CCFA2240FBC60046EAAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 				3F006FD3226F145200AB944B /* RepositoriesViewController.xib */,
 				3F006FD5226F18D200AB944B /* RepositoriesRepository.swift */,
 				3F006FD7226F36D300AB944B /* Repository.swift */,
+				3F006FD9226F4C0200AB944B /* RepositoryCell.swift */,
+				3F006FDB226F4C3400AB944B /* RepositoryCell.xib */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -266,6 +272,7 @@
 				3F42CD052240FBC80046EAAF /* LaunchScreen.storyboard in Resources */,
 				3F42CD022240FBC80046EAAF /* Assets.xcassets in Resources */,
 				3F006FD4226F145200AB944B /* RepositoriesViewController.xib in Resources */,
+				3F006FDC226F4C3400AB944B /* RepositoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F006FD8226F36D300AB944B /* Repository.swift in Sources */,
+				3F006FDA226F4C0200AB944B /* RepositoryCell.swift in Sources */,
 				3F006FCF226F13D400AB944B /* RepositoriesViewController.swift in Sources */,
 				3F1A8E6C224289740060A1BD /* Secrets.swift in Sources */,
 				3F006FD6226F18D200AB944B /* RepositoriesRepository.swift in Sources */,

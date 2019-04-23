@@ -27,6 +27,7 @@ final class RepositoriesRepositoryImpl: RepositoriesRepository {
   }
 
   func search(query: String) -> Observable<[Repository]> {
+    print("searching \(query)")
     return Observable.create { observer in
       let task = self.session.dataTask(with: self.url(for: query)) { (data, response, error) in
         guard let response = response as? HTTPURLResponse, let data = data else {
