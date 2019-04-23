@@ -28,6 +28,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3F006FCC226F09E000AB944B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3F1A8E6B224289740060A1BD /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		3F42CCF72240FBC60046EAAF /* GitHubFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,8 +158,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F42CD142240FBC90046EAAF /* Build configuration list for PBXNativeTarget "GitHubFeed" */;
 			buildPhases = (
-				0624824A0A343096D4F00623 /* [CP] Check Pods Manifest.lock */,
 				3F1A8E6D22428CB60060A1BD /* Generate Secrets */,
+				3F006FCC226F09E000AB944B /* CopyFiles */,
+				0624824A0A343096D4F00623 /* [CP] Check Pods Manifest.lock */,
 				3F42CCF32240FBC60046EAAF /* Sources */,
 				3F42CCF42240FBC60046EAAF /* Frameworks */,
 				3F42CCF52240FBC60046EAAF /* Resources */,
@@ -276,6 +289,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(SRCROOT)/Sources/Support/Secrets.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
