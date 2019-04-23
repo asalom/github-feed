@@ -22,7 +22,7 @@ protocol RepositoriesRepository {
 final class RepositoriesRepositoryImpl: RepositoriesRepository {
   private let session: URLSession
 
-  init(session: URLSession) {
+  init(session: URLSession = URLSession.shared) {
     self.session = session
   }
 

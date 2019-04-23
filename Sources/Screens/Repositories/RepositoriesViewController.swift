@@ -15,7 +15,7 @@ protocol RepositoriesView {
 final class RepositoriesViewController: UIViewController, RepositoriesView {
   private let presenter: RepositoriesPresenter
   
-  init(withPresenter presenter: RepositoriesPresenter) {
+  init(presenter: RepositoriesPresenter = RepositoriesPresenterImpl()) {
     self.presenter = presenter
     super.init(nibName: "RepositoriesViewController", bundle: nil)
   }

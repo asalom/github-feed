@@ -15,11 +15,11 @@ protocol RepositoriesPresenter {
 final class RepositoriesPresenterImpl: RepositoriesPresenter {
   private let repository: RepositoriesRepository
 
-  init(repository: RepositoriesRepository) {
+  init(repository: RepositoriesRepository = RepositoriesRepositoryImpl()) {
     self.repository = repository
   }
   
   func viewDidLoad() {
-    
+
   }
 }
