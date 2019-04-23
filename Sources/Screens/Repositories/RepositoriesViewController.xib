@@ -19,8 +19,34 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="7h8-e1-pAa">
+                    <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JMC-LW-khf">
+                    <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rTv-6j-fzd">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="JMC-LW-khf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Cx8-GN-heb"/>
+                <constraint firstItem="7h8-e1-pAa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="Ene-9y-R7m"/>
+                <constraint firstItem="JMC-LW-khf" firstAttribute="top" secondItem="7h8-e1-pAa" secondAttribute="bottom" id="Gbx-Lz-2wp"/>
+                <constraint firstItem="JMC-LW-khf" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="ICC-Ri-Pd7"/>
+                <constraint firstItem="JMC-LW-khf" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="QaM-aj-4Sc"/>
+                <constraint firstItem="7h8-e1-pAa" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="j7V-R1-Cvh"/>
+                <constraint firstItem="7h8-e1-pAa" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="sVN-H4-Spv"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
         </view>
     </objects>
 </document>
