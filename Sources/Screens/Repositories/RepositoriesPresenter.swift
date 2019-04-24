@@ -36,12 +36,17 @@ final class RepositoriesPresenterImpl: RepositoriesPresenter {
   func search(query: String) {
     repository.search(query: query)
       .map { repository in
-        repository.map(DiffableRepository.init)
+        return repository.map(DiffableRepository.init)
       }
       .observeOn(MainScheduler.instance)
-      .subscribe(onNext: { [weak self] repositories in
-        self?.repositories = repositories
-      })
+      .subscribe { [weak self] event in
+        switch event {
+        case .success(let repositories):
+          self?.repositories = repositories
+        case .error(let error):
+          print("Error: ", error)
+        }
+      }
       .disposed(by: disposeBag)
   }
 }

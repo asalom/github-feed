@@ -16,7 +16,7 @@ enum RepositoriesRepositoryError: Error {
 }
 
 protocol RepositoriesRepository {
-  func search(query: String) -> Observable<[Repository]>
+  func search(query: String) -> Single<[Repository]>
 }
 
 final class RepositoriesRepositoryImpl: RepositoriesRepository {
@@ -26,27 +26,26 @@ final class RepositoriesRepositoryImpl: RepositoriesRepository {
     self.session = session
   }
 
-  func search(query: String) -> Observable<[Repository]> {
+  func search(query: String) -> Single<[Repository]> {
     print("searching \(query)")
-    return Observable.create { observer in
-      let task = self.session.dataTask(with: self.url(for: query)) { (data, response, error) in
+    return Single.create { single in
+      let task = self.session.dataTask(with: self.request(for: self.url(for: query))) { (data, response, error) in
         guard let response = response as? HTTPURLResponse, let data = data else {
-          observer.on(.error(RepositoriesRepositoryError.general))
+          single(.error(RepositoriesRepositoryError.general))
           return
         }
 
         guard 200 ... 299 ~= response.statusCode else {
-          observer.on(.error(RepositoriesRepositoryError.http(status: response.statusCode)))
+          single(.error(RepositoriesRepositoryError.http(status: response.statusCode)))
           return
         }
 
         guard let repositories = try? JSONDecoder().decode(Repositories.self, from: data) else {
-          observer.on(.error(RepositoriesRepositoryError.decode))
+          single(.error(RepositoriesRepositoryError.decode))
           return
         }
 
-        observer.on(.next(repositories.items))
-        observer.on(.completed)
+        single(.success(repositories.items))
       }
 
       task.resume()
@@ -65,5 +64,12 @@ final class RepositoriesRepositoryImpl: RepositoriesRepository {
     ]
 
     return components.url!
+  }
+
+  private func request(for url: URL) -> URLRequest {
+    var request = URLRequest(url: url)
+    request.setValue("token \(Secrets.GitHub.token)", forHTTPHeaderField: "Authorization")
+
+    return request
   }
 }

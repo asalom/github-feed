@@ -53,7 +53,8 @@ final class RepositoriesViewController: UIViewController, RepositoriesView, List
   }
 
   func update() {
-    adapter?.reloadData(completion: nil)
+    //adapter?.reloadData(completion: nil)
+    adapter?.performUpdates(animated: true)
   }
 
   func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
@@ -61,7 +62,7 @@ final class RepositoriesViewController: UIViewController, RepositoriesView, List
   }
 
   func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-    return LabelSectionController()
+    return RepositorySectionController()
   }
 
   func emptyView(for listAdapter: ListAdapter) -> UIView? {
@@ -69,7 +70,7 @@ final class RepositoriesViewController: UIViewController, RepositoriesView, List
   }
 }
 
-class LabelSectionController: ListSectionController {
+class RepositorySectionController: ListSectionController {
   private var repository: Repository?
   override func sizeForItem(at index: Int) -> CGSize {
     return CGSize(width: collectionContext!.containerSize.width, height: 55)
